@@ -1,0 +1,2 @@
+mapboxgl.accessToken="pk.eyJ1IjoiZGVyZ3V0ZSIsImEiOiJja3pheWczajgwOXd6MndxaXFmY3k2bGxlIn0.Nrz0K7zjqy9pYRtuBhZ3Zg";const map=new mapboxgl.Map({container:"map",style:"mapbox://styles/dergute/ckzb3oib4003p14tai2n4pt1n",center:[-71.32,41.49],zoom:13.7});map.on("click",(e=>{const t=map.queryRenderedFeatures(e.point,{layers:["art-gallery"]});if(!t.length)return;const p=t[0];new mapboxgl.Popup({offset:[0,-15]}).setLngLat(p.geometry.coordinates).setHTML(`<h3>${p.properties.title}</h3><p>${p.properties.description}</p>`).addTo(map)}));
+//# sourceMappingURL=all.js.map
