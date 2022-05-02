@@ -1,0 +1,50 @@
+@use '../mixins' as m;
+@use '../base' as b;
+
+
+.footer {
+    flex-direction: column;
+    width: 100%;
+    padding: 4rem 2rem;
+    --flow-space: 3rem;
+
+    &__h2-span {
+        display: table;
+    }
+    &__text {
+        width: calc(12rem + 34vw);
+    }
+    &__icons {
+        --gap: 1rem;
+    }
+       &__icons-facebook{
+           display: block;
+           width: 1.5rem;
+           height: 1.5rem;
+       }
+       &__icons-insta {
+           @extend .footer__icons-facebook;
+
+       }
+       &__icons-twitter {
+           @extend .footer__icons-facebook;
+
+       }
+
+    @include m.respond(tablet){
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: baseline;
+
+        &__text {
+            width: calc(23rem - 5vw);
+        }
+    }
+
+    @include m.respond(desktop){
+        &__text {
+            width: calc(32rem - 5vw);
+            font-size: b.set-font-size('body-S');
+        }
+    }
+}

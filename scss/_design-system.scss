@@ -1,0 +1,160 @@
+@use 'base'as b;
+
+.grid--container {
+    display: grid;
+    grid-gap: 3em 3em;
+    grid-template-columns:
+    10rem 1fr  1fr 10rem
+;
+}
+
+@mixin secondHeading {
+    > h2 {
+        grid-area: title;
+        color: b.set-color('grey', .5);
+        margin: 4rem 0 2rem 0;
+    }
+}
+
+.container {
+    max-width: 90rem;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+
+
+.header {
+    width: 100%;
+    height: 10rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10rem;
+
+    .header__h1 {
+        letter-spacing: 1px;
+        line-height: 2.2rem;
+        .header__span {
+            display: table;
+        }
+    }
+}
+
+.color {
+    flex-direction: column;
+    margin-inline: 10rem;
+    @include secondHeading;
+
+    &__box {
+       justify-content: space-between;
+
+        .box-4 > .color__hex {
+            border: 1px solid b.set-color('grey', .34);
+        }
+    }
+
+    &__hex  {
+        width: 15.937rem;
+        padding: 4rem 8rem 1rem 1rem;
+        margin-bottom: 1rem;
+      }
+
+    &__rgb > span,
+    &__hsv > span {
+        margin-left: 1rem;
+        font-weight: 600;
+    }
+}
+
+.typ {
+    @include secondHeading;
+    grid-template-areas:
+        '. title title .'
+        '. box1  box5 .'
+        '. box2  box5 .'
+        '. box3  box6 .'
+        '. box4  . .'
+    ;
+    &__box > h3 > span {
+        font-weight: 300;
+    }
+    &__box__1 {
+        grid-area: box1;
+    }
+    &__box__2 {
+        grid-area: box2;
+    }
+    &__box__3 {
+        grid-area: box3;
+    }
+    &__box__4 {
+        grid-area: box4;
+    }
+    &__box__5 {
+        grid-area: box5;
+    }
+    &__box__6 {
+        grid-area: box6;
+    }
+}
+
+
+.buttons {
+    @include secondHeading;
+    grid-template-areas:
+        '. title title .'
+        '. button-1 button-2 .'
+    ;
+    align-items: center;
+    --grid-gap: 6rem;
+    margin-bottom: 6rem;
+
+    &__h2 {
+        grid-area: title;
+    }
+    > .button-1 {
+        grid-area: button-1;
+    }
+    > .button-2 {
+        grid-area: button-2;
+    }
+    .button {
+        width: 16.25em;
+        height: 4.5em;
+        justify-self: center;
+        justify-content: end;
+        align-items: center;
+        background: b.set-color('black', 1);
+
+        &__box-1 {
+            margin: 0 auto;
+            letter-spacing: 3.64px;
+        }
+        &__box-2 {
+            width: 4em;
+            height: 4.5em;
+            justify-content: center;
+            align-items: center;
+            background: b.set-color('gold', 1);
+        }
+        &__arrow--right {
+            background: url(../img/icon-arrow-right.svg);
+            display: block;
+            width: .625em;
+            height: 1.5em;
+            background-size: .625em 1.5em;
+            background-position: center;
+        }
+        &__arrow--left {
+            @extend .button__arrow--right;
+            background: url(../img/icon-arrow-left.svg);
+        }
+        &__btn--hover:hover,
+        &__btn--hover:focus {
+            background: b.set-color('gold', 1);
+            .button__box-2 {
+                background: b.set-color('black', 1);
+         }
+        }
+    }
+}

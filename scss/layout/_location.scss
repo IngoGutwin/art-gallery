@@ -1,0 +1,90 @@
+@use '../mixins' as m;
+
+.container-location {
+    flex-direction: column;
+    align-items: center;
+    --gap: 0;
+}
+
+.map-section {
+    position: relative;
+    height: 21rem;
+    width: 100%;
+    z-index: 5;
+    @include m.respond(tablet) {
+        height: 37.5rem;
+    }
+
+    #map{
+        height: 100%;
+        width: 100%;
+        position: absolute;
+    }
+}
+
+
+.button-back {
+    position: absolute;
+    z-index: 10;
+    @include m.respond(tablet) {
+        margin-left:  calc(1rem + 5vw);
+    }
+}
+
+
+
+.adress {
+    height: 36.25rem;
+
+    width: 100%;
+
+    align-self: end;
+
+    --flow-space: 2rem;
+
+    padding: 1rem 1rem 1rem 2rem;
+
+    &__h1 {
+        padding: 2rem 0 1rem 0;
+    }
+
+    &__text {
+        max-width: calc(20rem + 6vw);
+        padding: 0 0 3.9rem 0;
+    }
+
+    @include m.respond(tablet) {
+        grid-template-columns: 45% 55%;
+
+        padding: calc(2rem + 2vw) 2rem 0 calc(.5rem + 8vw);
+
+        &__h1 {
+            grid-column: 1;
+        }
+
+        &__h1-span {
+            display: table;
+        }
+
+        &__box{
+            grid-column: 2;
+        }
+
+        &__text {
+            max-width: calc(28rem + 6vw);
+            padding: 0 0 3.9rem 0;
+        }
+
+
+    }
+}
+
+
+
+
+
+
+
+
+
+

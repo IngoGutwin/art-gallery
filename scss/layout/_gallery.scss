@@ -1,0 +1,135 @@
+@use '../mixins' as m;
+
+.gallery {
+    @include m.respond(mobile) {
+        grid-template-columns: 1fr ;
+
+        &__h2-one-span-2 {
+            display: table;
+        }
+    }
+
+    margin-inline: auto;
+
+    padding: 0 1rem;
+
+    margin-block: 5rem;
+
+    &__h2-one {
+        &__span-1 {
+            display: table;
+        }
+    }
+
+    &__text-day{
+        max-width: 17rem;
+    }
+    &__box-two {
+        padding: 3rem 1.625rem;
+    }
+    &__text-inspired {
+        max-width: 17rem;
+    }
+
+    &__h2-two-span {
+        display: table;
+    }
+    &__img-box-1,
+    &__img-box-2 {
+        align-self: center;
+    }
+    &__img-box-3 {
+        align-self: start;
+    }
+    &__img-1 {
+        max-height: 25rem;
+    }
+    &__img-2 {
+        max-height: 45rem;
+    }
+    &__img-3 {
+        height: clamp(17.5rem, 38vw, 19.5rem);
+    }
+
+    @mixin grid-layout {
+        @include m.respond(tablet){
+
+            grid-template-columns: repeat(12, auto);
+
+            grid-template-rows: auto auto auto;
+
+            --grid-gap: 2rem;
+
+            margin-block: 15rem;
+
+            &__box-one {
+                grid-column: 1 / span 4;
+                grid-row: 1 / span 1;
+                align-self: center;
+                height: auto;
+            }
+
+            &__h2-one {
+                &__span-1,
+                &__span-3 {
+                    display: table;
+                }
+            }
+
+            &__img-box-1 {
+                grid-column: 5 / span 8;
+                grid-row: 1 / span 1;
+            }
+
+            &__img-box-2{
+                grid-column: 1 / span 9;
+                grid-row: 2 / span 2;
+            }
+
+            &__img-box-3 {
+                grid-column: 10 / span 3;
+                grid-row: 2;
+            }
+
+            &__box-two {
+                grid-column: 10 / span 3;
+                grid-row: 3;
+            }
+
+            &__text-inspired {
+                max-width: 13rem;
+            }
+
+        }
+    }
+    @include grid-layout();
+
+    @include m.respond(desktop) {
+        @include grid-layout();
+
+        max-width: 69.4rem;
+
+        --gap: 2rem;
+
+        &__h2-one {
+            &__span-1 {
+                display: inline;
+            }
+            &__span-2 {
+                display: table;
+            }
+            &__span-3 {
+                display: inline;
+            }
+        }
+
+        &__box-two {
+            align-self: start;
+            padding-block: 4.8rem;
+        }
+
+        &__text-inspired {
+            max-width: 18rem;
+        }
+    }
+}

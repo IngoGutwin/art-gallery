@@ -1,0 +1,50 @@
+@use 'base'as b;
+
+.button {
+    width: 16.25em;
+    height: 4.5em;
+    justify-self: center;
+    justify-content: end;
+    align-items: center;
+    background: b.set-color('black', 1);
+    overflow: hidden;
+    text-decoration: none;
+    cursor: pointer;
+
+    --gap: 1rem;
+    &__box-1 {
+        margin:  auto;
+        width: 50%;
+        letter-spacing: 3.64px;
+    }
+    &__box-2 {
+        width: 4em;
+        height: 4.5em;
+        justify-content: center;
+        align-items: center;
+        background: b.set-color('gold', 1);
+    }
+    &__arrow--right {
+        background: url(../img/icon-arrow-right.svg);
+        display: block;
+        width: .625em;
+        height: 1.5em;
+        background-size: .625em 1.5em;
+        background-position: center;
+    }
+    &__arrow--left {
+        background: url(../img/icon-arrow-left.svg);
+        display: block;
+        width: .625em;
+        height: 1.5em;
+        background-size: .625em 1.5em;
+        background-position: center;
+    }
+    &__btn--hover:hover,
+    &__btn--hover:focus {
+        background: b.set-color('gold', 1);
+        .button__box-2 {
+            background: b.set-color('black', 1);
+     }
+    }
+}

@@ -1,0 +1,14 @@
+@use 'sass:map';
+
+
+@function set-color($color, $opac) {
+    $color: map.get($colors, $color);
+    $result: rgba($color, $opac);
+    @return $result;
+}
+
+$colors: (
+    'gold': #d5966c,
+    'black': #151515,
+    'grey': #444444,
+    'white': #ffffff)

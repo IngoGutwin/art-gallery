@@ -1,0 +1,46 @@
+
+@forward 'hero';
+@forward 'gallery';
+@forward 'footer';
+@forward 'location';
+@use '../base' as b;
+
+
+.flex {
+    display: flex;
+    gap: var(--gap, 1rem);
+}
+
+.grid-container {
+    display: grid;
+    grid-gap: var(--grid-gap, 1rem)
+}
+
+.container {
+    max-width: 90rem;
+    margin: 0 auto;
+}
+
+.flow > * + * {
+     margin-top: var(--flow-space, 1rem);
+ }
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.skip-to-content {
+    position: absolute;
+    z-index: 9999;
+    background: b.set-color('white', 1);
+    color: b.set-color('black', 1);
+    padding: 0.5em 1em;
+    margin: 0 auto;
+    transform: translateY(-110%);
+    transition: transform 250ms ease-in;
+
+    &:focus {
+        transform: translateY(0);
+      }
+}
+
